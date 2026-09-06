@@ -19,7 +19,7 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="https://www.shutterstock.com/image-vector/bear-bull-chartbar-logo-design-600w-1772447009.jpg" style={{ width: "150px" , height: "100px", backgroundColor: "#f0f0f0", color: "#000" }} />
+      <img src="https://www.shutterstock.com/image-vector/bear-bull-chartbar-logo-design-600w-1772447009.jpg"   alt="Zerodha Logo" style={{ width: "150px" , height: "100px", backgroundColor: "#f0f0f0", color: "#000" }} />
       <div className="menus">
         <ul>
           <li>

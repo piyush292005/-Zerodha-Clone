@@ -1,6 +1,6 @@
 //import React from "react";
 import React,{ useState, useEffect} from "react";
-import axios, {all} from "axios";
+import axios, {} from "axios";
 
 //import { positions } from "../data/data";
 
@@ -14,16 +14,7 @@ const Positions = () =>{
 
   })
 
-const data = {
-  labels: positions.map((stock) => stock["name"]),
-  datasets: [
-    {
-      label: "P&L",
-      data: positions.map((stock) => stock["pl"]),
-      backgroundColor: positions.map((stock) => (stock["pl"] >= 0 ? "green" : "red")),
-    }
-  ]
-};
+
 
 return (
     <>
