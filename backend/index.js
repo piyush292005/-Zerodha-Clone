@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const {HoldingModel} = require('./model/HoldingModel');
 const {PostionsModel} = require('./model/PostionsModel');
 const {OrdersModel} = require('./model/OrdersModel');
+const {UserModel} = require('./model/UserModel');
+
 
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
@@ -189,6 +191,37 @@ app.get("/allHoldings" , async (req, res) => {
 app.get("/allPositions" , async (req, res) => {
   let allPositions = await PostionsModel.find();
   res.json(allPositions);
+});
+app.post("/signup", async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    const existingUser = await UserModel.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        message: "User already exists"
+      });
+    }
+
+    const newUser = new UserModel({
+      name,
+      email,
+      password
+    });
+
+    await newUser.save();
+
+    res.status(201).json({
+      message: "Signup successful"
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Signup failed",
+      error: error.message
+    });
+  }
 });
 
 app.post("/newOrder" , async (req, res) => {
