@@ -224,6 +224,41 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await UserModel.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        message: "User not found"
+      });
+    }
+
+    if (user.password !== password) {
+      return res.status(400).json({
+        message: "Invalid password"
+      });
+    }
+
+    res.status(200).json({
+      message: "Login successful",
+      user: {
+        name: user.name,
+        email: user.email
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Login failed",
+      error: error.message
+    });
+  }
+});
+
 app.post("/newOrder" , async (req, res) => {
   let newOrder = new OrdersModel({
     name : req.body.name,
