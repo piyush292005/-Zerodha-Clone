@@ -14,7 +14,7 @@ const Menu = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
   const handleLogout = () => {
-    window.location.href = "https://zerodha-clone-swart-seven.vercel.app/login";
+    window.location.href = "https://zerodha-frontend-ruddy.vercel.app/";
   };
 
   const menuClass = "menu";
