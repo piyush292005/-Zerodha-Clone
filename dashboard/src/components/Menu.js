@@ -13,13 +13,16 @@ const Menu = () => {
   const handleProfileClick = (index) => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
+  const handleLogout = () => {
+    window.location.href = "https://zerodha-clone-swart-seven.vercel.app/login";
+  };
 
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
 
   return (
     <div className="menu-container">
-      <img src="https://www.shutterstock.com/image-vector/bear-bull-chartbar-logo-design-600w-1772447009.jpg"   alt="Zerodha Logo" style={{ width: "150px" , height: "100px", backgroundColor: "#f0f0f0", color: "#000" }} />
+      <img src="https://www.shutterstock.com/image-vector/bear-bull-chartbar-logo-design-600w-1772447009.jpg" alt="Zerodha Logo" style={{ width: "150px", height: "100px", backgroundColor: "#f0f0f0", color: "#000" }} />
       <div className="menus">
         <ul>
           <li>
@@ -90,13 +93,30 @@ const Menu = () => {
           </li>
         </ul>
         <hr />
-        <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
-        </div>
+       <div>
+  <div className="profile" onClick={handleProfileClick}>
+    <div className="avatar">ZU</div>
+    <p className="username">USERID</p>
+  </div>
+
+  {isProfileDropdownOpen && (
+    <button
+      onClick={handleLogout}
+      style={{
+        display: "block",
+        margin: "10px auto",
+        padding: "8px 20px",
+        background: "white",
+        border: "1px solid #ccc",
+        cursor: "pointer"
+      }}
+    >
+      Logout
+    </button>
+  )}
+</div>
       </div>
     </div>
   );
-};
-
+}
 export default Menu;

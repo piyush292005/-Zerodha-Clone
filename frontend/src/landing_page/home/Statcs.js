@@ -3,8 +3,8 @@ import React from 'react';
 function Stats() {
     return (
         <div className= "container p-5">
-            <div className="row p-5">
-                <div className= "col-6 p-5">  
+            <div className="row p-3 p-md-5">
+                <div className="col-12 col-md-6 p-3 p-md-5">  
                     <h1 className='mb-5'> Trust with confidence </h1>
 
                     <h2 className='fs-4'> Customer-first always</h2>
@@ -23,8 +23,13 @@ function Stats() {
 
 
                 </div>
-                <div className= "col-6 mt-5"> 
-                    <img src= "media/images/ecosystem.png" style={{ width:'85%' }} />
+              <div className="col-12 col-md-6 mt-4 mt-md-5"> 
+                   <img
+  src="media/images/ecosystem.png"
+  className="img-fluid"
+  style={{ width: '85%' }}
+  alt="Zerodha ecosystem"
+/>
                   <div className='text-center'>
                     <a href='' className='mx-5' style={{ textDecoration: 'none' }}>Explore our products<i class="fa-solid fa-arrow-right"></i></a>
                     <a href='' style={{ textDecoration: 'none' }}>Try Kite<i class="fa-solid fa-arrow-right"></i></a>
